@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | LUXE HAIR SALOON</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/jpeg" href="static/images/logo.jfif" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- GLOBAL RESET & VARIABLES ----- */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: rgba(168, 8,48,0.85);
+      color: #fff;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+    .gold { color: #D4AF37; }
+    .bg-gold { background-color: #D4AF37 !important; }
+    .border-gold { border-color: #D4AF37 !important; }
+    .text-gold { color: #D4AF37; }
+
+    /* ----- BUTTONS ----- */
+    .btn-gold {
+      background-color: #D4AF37;
+      color: #000;
+      font-weight: 600;
+      border: 2px solid #D4AF37;
+      transition: 0.3s;
+    }
+    .btn-gold:hover {
+      background-color: transparent;
+      color: #D4AF37;
+    }
+    .btn-outline-gold {
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      background: transparent;
+      transition: 0.3s;
+    }
+    .btn-outline-gold:hover {
+      background: #D4AF37;
+      color: #000;
+    }
+
+    /* ----- NAVBAR (matches homepage) ----- */
+    .navbar {
+      background: rgba(168, 8,48,0.85) !important;
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #D4AF37;
+    }
+    .navbar-brand img { height: 45px; width: auto; }
+    .nav-link {
+      color: #fff !important;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #D4AF37 !important;
+    }
+
+    /* ----- SECTION TITLE (underline) ----- */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: #D4AF37;
+    }
+    .section-title.text-center::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ----- ABOUT SPECIFIC ----- */
+    .about-hero {
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(168, 8,48,0.85) 100%), url('static/images/background\ \(2\).jfif') center/cover no-repeat;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      padding: 5rem 0;
+      margin-top: 72px;
+    }
+    .ceo-card {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+    .ceo-card:hover {
+      border-color: #D4AF37;
+      box-shadow: 0 10px 30px rgba(212,175,55,0.12);
+    }
+    .ceo-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border: 4px solid #D4AF37;
+      border-radius: 50%;
+    }
+    .value-icon {
+      font-size: 2.6rem;
+      color: #D4AF37;
+      margin-bottom: 0.8rem;
+    }
+    .timeline-item {
+      border-left: 3px solid #D4AF37;
+      padding-left: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+    .timeline-item h5 { color: #D4AF37; }
+    .footer {
+      background: rgba(168, 8,48,0.85);
+      border-top: 1px solid #222;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .footer a:hover { color: #D4AF37; }
+    .social-icons a {
+      display: inline-block;
+      background: #222;
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 8px;
+      transition: 0.3s;
+      border: 1px solid #333;
+    }
+    .social-icons a:hover {
+      background: #D4AF37;
+      color: #000;
+      border-color: #D4AF37;
+    }
+    @media (max-width: 768px) {
+      .section-title { font-size: 2.2rem; }
+      .about-hero { min-height: 40vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR (same as homepage) ====== -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="static/images/logo.jfif" alt="LUXE HAIR SALOON" class="me-2" />
+        <span class="gold fw-bold" style="font-family: 'Playfair Display', serif;">LUXE</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+              aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== ABOUT HERO ====== -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <span class="badge bg-gold text-black px-3 py-2 mb-3" style="font-weight:400;">✦ Our Story</span>
+          <h1 class="display-3 fw-bold">About <span class="gold">LUXE</span></h1>
+          <p class="lead mt-3" style="max-width:600px;">Passion, precision, and a touch of luxury – that’s the LUXE difference. Get to know the heart behind the brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== OUR PHILOSOPHY ====== -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-md-6">
+          <h2 class="section-title">Who We <span class="gold">Are</span></h2>
+          <p class="mt-4" style="font-size:1.1rem; line-height:1.8;">LUXE HAIR SALOON is a premier destination for those who seek elegance and expertise. Founded by <strong class="gold">Karen Smith</strong>, our salon blends artistry with science to deliver transformative hair experiences. We believe that every client deserves to feel confident, beautiful, and uniquely themselves.</p>
+          <p class="text-light-50">From our Victoria Island location, we serve a discerning clientele with bespoke styling, restorative treatments, and a curated collection of luxury wigs. Our team is dedicated to continuous education and uses only the finest products.</p>
+          <div class="d-flex flex-wrap mt-4">
+            <div class="me-4"><i class="fas fa-check-circle gold me-2"></i> 10+ years of excellence</div>
+            <div class="me-4"><i class="fas fa-check-circle gold me-2"></i> 100% client satisfaction</div>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="static/images/beauty5.jfif" alt="LUXE team" class="img-fluid rounded shadow" style="border: 1px solid #D4AF37; max-height:350px; width:100%; object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CEO SECTION ====== -->
+  <section class="py-5" style="background:rgba(168, 8,48,0.85);">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="static/images/ceo2.jfif" alt="Karen Smith" class="ceo-img shadow" />
+          <h4 class="mt-3 gold">Karen Smith</h4>
+          <p class="text-light-50">CEO & Lead Stylist</p>
+          <div class="social-icons mt-2">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="ceo-card p-4">
+            <h4 class="gold"><i class="fas fa-quote-left me-2"></i> A vision of luxury</h4>
+            <p class="mt-3" style="line-height:1.8;">“I founded LUXE with a simple belief: hair is the ultimate accessory. Our mission is to create a sanctuary where women feel empowered and celebrated. Every cut, every treatment, every wig is crafted with meticulous care and an unwavering commitment to excellence.”</p>
+            <hr class="border-gold opacity-25" />
+            <div class="row g-3 mt-2">
+              <div class="col-sm-4"><i class="fas fa-award gold me-2"></i> Certified stylist</div>
+              <div class="col-sm-4"><i class="fas fa-globe gold me-2"></i> International training</div>
+              <div class="col-sm-4"><i class="fas fa-heart gold me-2"></i> 500+ happy clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== OUR VALUES ====== -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-center">Our <span class="gold">Values</span></h2>
+        <p class="text-muted mt-3">The pillars that guide everything we do.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-4" style="background:rgba(168, 8,48,0.85); border:1px solid #222;">
+            <div class="value-icon"><i class="fas fa-gem"></i></div>
+            <h5 class="gold">Excellence</h5>
+            <p class="text-light-50">We pursue mastery in every service, from the initial consultation to the final look.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-4" style="background:rgba(168, 8,48,0.85); border:1px solid #222;">
+            <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+            <h5 class="gold">Integrity</h5>
+            <p class="text-light-50">Honest advice, transparent pricing, and genuine care for your hair’s health.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-4" style="background:rgba(168, 8,48,0.85); border:1px solid #222;">
+            <div class="value-icon"><i class="fas fa-star"></i></div>
+            <h5 class="gold">Innovation</h5>
+            <p class="text-light-50">We stay ahead of trends and techniques to offer you the most advanced solutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TIMELINE / MILESTONES ====== -->
+  <section class="py-5" style="background:rgba(168, 8,48,0.85);">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-md-6">
+          <h2 class="section-title">Our <span class="gold">Journey</span></h2>
+          <p class="text-muted mt-3">Milestones that shaped LUXE.</p>
+          <div class="mt-4">
+            <div class="timeline-item">
+              <h5>2015 – The Beginning</h5>
+              <p class="text-light-50">Karen Smith opened the first LUXE studio with a single chair and a dream to redefine hair luxury.</p>
+            </div>
+            <div class="timeline-item">
+              <h5>2018 – Expansion</h5>
+              <p class="text-light-50">Moved to our iconic Victoria Island location, expanding our team and service menu.</p>
+            </div>
+            <div class="timeline-item">
+              <h5>2021 – Wig Collection Launch</h5>
+              <p class="text-light-50">Introduced our signature wig line, crafted with premium human hair and ethical sourcing.</p>
+            </div>
+            <div class="timeline-item">
+              <h5>2025 – Global Recognition</h5>
+              <p class="text-light-50">Featured in top beauty publications and named “Best Luxury Salon” in Lagos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="static/images/parlour.jfif" alt="Salon interior" class="img-fluid rounded shadow" style="border:1px solid #D4AF37; max-height:400px; width:100%; object-fit:cover;" />
+          <div class="mt-4 p-4" style="background:#111; border-radius:12px; border-left:4px solid #D4AF37;">
+            <i class="fas fa-quote-right gold fa-2x opacity-50"></i>
+            <p class="mt-2 fst-italic">“LUXE isn’t just a salon – it’s a community. We celebrate diversity and empower every woman to own her style.”</p>
+            <span class="text-gold">— Karen Smith</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WHY CHOOSE LUXE ====== -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-center">Why <span class="gold">LUXE</span></h2>
+        <p class="text-muted">What sets us apart from the rest.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="text-center">
+            <i class="fas fa-user-tie gold fa-3x mb-2"></i>
+            <h6>Expert stylists</h6>
+            <small class="text-muted">Certified & continuously trained</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="text-center">
+            <i class="fas fa-leaf gold fa-3x mb-2"></i>
+            <h6>Clean beauty</h6>
+            <small class="text-muted">Non-toxic, sustainable products</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="text-center">
+            <i class="fas fa-wifi gold fa-3x mb-2"></i>
+            <h6>Luxury ambiance</h6>
+            <small class="text-muted">Relaxing, high-end environment</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="text-center">
+            <i class="fas fa-hand-sparkles gold fa-3x mb-2"></i>
+            <h6>Bespoke care</h6>
+            <small class="text-muted">Tailored to your unique needs</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT STRIP (quick links) ====== -->
+  <section class="py-4" style="background: #111; border-top:1px solid #222; border-bottom:1px solid #222;">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-md-4">
+          <i class="fas fa-phone-alt gold me-2"></i> 09032960035
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-envelope gold me-2"></i> epiheemma@gmail.com
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-map-pin gold me-2"></i> Victoria Island, Ikeja, Lagos.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <span class="gold fw-bold" style="font-family:'Playfair Display',serif;">LUXE HAIR SALOON</span>
+          <span class="text-muted ms-2">© 2026 All rights reserved.</span>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <span class="text-muted">Designed with <i class="fas fa-heart gold"></i> by Karen Smith</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- smooth scroll (optional) -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>

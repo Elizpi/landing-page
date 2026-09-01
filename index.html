@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE HAIR SALOON</title>
+    <!-- Favicon (logo.jfif) -->
+    <link rel="icon" type="image/jpeg" href="static/images/logo.jfif">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font (optional elegance) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: rgba(168, 8 ,48, 0.85);
+            color: #fff;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold {
+            color: #D4AF37;
+        }
+        .bg-black {
+            background-color: rgba(168, 8 ,48, 0.85) !important;
+        }
+        .bg-gold {
+            background-color: #D4AF37 !important;
+        }
+        .border-gold {
+            border-color: #D4AF37 !important;
+        }
+        .text-gold {
+            color: #D4AF37;
+        }
+        .btn-gold {
+            background-color: #D4AF37;
+            color: #000;
+            font-weight: 600;
+            border: 2px solid #D4AF37;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: transparent;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+        }
+        .btn-outline-gold {
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-gold:hover {
+            background: #D4AF37;
+            color: #000;
+        }
+        .navbar {
+            background: rgba(168, 8, 48, 0.85) !important;
+            backdrop-filter: blur(4px);
+            border-bottom: 1px solid #D4AF37;
+        }
+        .navbar-brand img {
+            height: 45px;
+            width: auto;
+        }
+        .nav-link {
+            color: #fff !important;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #D4AF37 !important;
+        }
+        .hero {
+            background:linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(168, 8 ,48, 0.85) 100%), url('static/images/background.jfif') center/cover no-repeat;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .hero .lead {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: #D4AF37;
+        }
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .card {
+            background: rgba(168, 8, 48, 0.85);
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.15);
+            border-color: #D4AF37;
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        .service-icon {
+            font-size: 2.8rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card {
+            background: rgba(168, 8 ,48, 0.85);
+            border-left: 4px solid #D4AF37;
+            padding: 1.8rem;
+            border-radius: 8px;
+        }
+        .footer {
+            background: rgba(168, 8 ,48, 0.85);
+            border-top: 1px solid #222;
+        }
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #D4AF37;
+        }
+        .social-icons a {
+            display: inline-block;
+            background: #222;
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: background 0.3s, color 0.3s;
+            border: 1px solid #333;
+        }
+        .social-icons a:hover {
+            background: #D4AF37;
+            color: #000;
+            border-color: #D4AF37;
+        }
+        .ceo-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border: 4px solid #D4AF37;
+            border-radius: 50%;
+        }
+        .wig-grid img {
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            width: 100%;
+        }
+        .wig-grid img:hover {
+            transform: scale(1.03);
+        }
+        .address-block i {
+            width: 28px;
+            color: #D4AF37;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="static/images/logo.jfif" alt="LUXE HAIR SALOON" class="me-2" style="height: 45px;">
+                <span class="gold fw-bold" style="font-family: 'Playfair Display', serif;">LUXE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
+                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center" style="margin-top: 72px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10">
+                    <span class="badge bg-gold text-black mb-3 px-3 py-2" style="font-weight: 400;">✨ Premium Hair & Wigs</span>
+                    <h1 class="display-2 fw-bold">LUXE <span class="gold">HAIR</span> SALOON</h1>
+                    <p class="lead my-4">Where elegance meets expertise – stylish cuts, luxurious treatments, and premium wigs curated for the modern woman.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#services" class="btn btn-gold btn-lg px-5">Explore Services</a>
+                        <a href="#products" class="btn btn-outline-gold btn-lg px-5">Shop Wigs</a>
+                    </div>
+                    <div class="mt-5 d-flex align-items-center gap-4">
+                        <div><i class="fas fa-phone-alt gold me-2"></i> <span>09032960035</span></div>
+                        <div><i class="fas fa-envelope gold me-2"></i> epiheemma@gmail.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO & Welcome -->
+    <section class="py-5 bg-black">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-5 text-center">
+                    <img src="static/images/ceo2.jfif" alt="CEO Karen Smith" class="ceo-img shadow-lg">
+                    <h4 class="mt-3 gold">Karen Smith</h4>
+                    <p class="text-light-50">CEO & Lead Stylist</p>
+                </div>
+                <div class="col-md-7">
+                    <h2 class="section-title">Welcome to <span class="gold">LUXE</span></h2>
+                    <p class="mt-4" style="font-size: 1.1rem; line-height: 1.8;">At LUXE HAIR SALOON, we believe every crown deserves to shine. Led by Karen Smith, our team combines artistry with science to transform your hair. From bespoke styling to restorative treatments and high-quality wigs, we deliver a luxury experience that celebrates your unique beauty.</p>
+                    <div class="d-flex flex-wrap mt-4">
+                        <div class="me-4"><i class="fas fa-check-circle gold me-2"></i> Expert Stylists</div>
+                        <div class="me-4"><i class="fas fa-check-circle gold me-2"></i> Premium Products</div>
+                        <div><i class="fas fa-check-circle gold me-2"></i> 100% Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section id="services" class="py-5" style="background: #0a0a0a;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-center">Our <span class="gold">Services</span></h2>
+                <p class="text-muted mt-4">Indulge in the finest hair care & styling</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon"><i class="fas fa-cut"></i></div>
+                        <h5 class="gold">Stylish Cuts</h5>
+                        <p class="text-light-50">Precision cuts tailored to your face shape and lifestyle. From classic bobs to edgy layers.</p>
+                        <img src="static/images/beauty1.jfif" class="card-img-top mt-2" alt="Stylish cut" style="height: 160px;">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon"><i class="fas fa-spa"></i></div>
+                        <h5 class="gold">Hair Treatments</h5>
+                        <p class="text-light-50">Restorative masks, keratin smoothing, and scalp therapies for healthy, radiant hair.</p>
+                        <img src="static/images/beauty2.jfif" class="card-img-top mt-2" alt="Hair treatment" style="height: 160px;">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon"><i class="fas fa-crown"></i></div>
+                        <h5 class="gold">Wig Styling</h5>
+                        <p class="text-light-50">Custom wig fitting, styling, and maintenance. Premium human hair and synthetic wigs.</p>
+                        <img src="static/images/beauty3.jfif" class="card-img-top mt-2" alt="Wig styling" style="height: 160px;">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="services.html" class="btn btn-gold px-5">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products / Wigs -->
+    <section id="products" class="py-5 bg-black">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-center">LUXE <span class="gold">Wigs</span> Collection</h2>
+                <p class="text-muted">Discover our premium selection of wigs</p>
+            </div>
+            <div class="row g-4 wig-grid">
+                <div class="col-6 col-md-3">
+                    <img src="static/images/wig1.jfif" class="img-fluid" alt="Wig 1">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="static/images/wig2.jfif" class="img-fluid" alt="Wig 2">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="static/images/wig3.jfif" class="img-fluid" alt="Wig 3">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="static/images/wig4.jfif" class="img-fluid" alt="Wig 4">
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="products.html" class="btn btn-outline-gold px-5">Shop All Wigs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial / Parlour -->
+    <section class="py-5" style="background: #0d0d0d;">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6">
+                    <img src="static/images/parlour.jfif" alt="LUXE Salon interior" class="img-fluid rounded shadow" style="border: 1px solid #D4AF37;">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="gold">A Space Designed for You</h3>
+                    <p class="text-light-50">Step into our Victoria Island salon – a haven of luxury and tranquility. Every detail, from the warm lighting to the plush seating, is curated to make you feel celebrated.</p>
+                    <div class="testimonial-card mt-4">
+                        <i class="fas fa-quote-left gold fa-2x opacity-50"></i>
+                        <p class="fst-italic mt-2">"LUXE transformed my hair! Karen and her team are magicians. The wigs are incredible – I’ve never felt more confident."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="static/images/beauty4.jfif" alt="client" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #D4AF37;">
+                            <div class="ms-3">
+                                <strong>— Adeola R.</strong>
+                                <span class="d-block text-muted small">Regular client</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Address -->
+    <section class="py-5 bg-black" id="contact">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h2 class="section-title">Get in <span class="gold">Touch</span></h2>
+                    <p class="text-light-50 mt-3">We'd love to hear from you. Visit us or reach out via phone or email.</p>
+                    <div class="mt-4 address-block">
+                        <p><i class="fas fa-map-pin"></i> <strong>Address:</strong> Victoria Island, Ikeja, Lagos.</p>
+                        <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> 09032960035</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> epiheemma@gmail.com</p>
+                        <div class="social-icons mt-4">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="static/images/open.jfif" alt="Open sign" class="img-fluid rounded shadow" style="border: 1px solid #D4AF37; max-height: 280px; width: 100%; object-fit: cover;">
+                    <div class="mt-3 d-flex gap-4 flex-wrap">
+                        <span><i class="fas fa-clock gold me-2"></i> Mon–Sat: 9am – 7pm</span>
+                        <span><i class="fas fa-clock gold me-2"></i> Sunday: Closed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <span class="gold fw-bold" style="font-family: 'Playfair Display', serif;">LUXE HAIR SALOON</span>
+                    <span class="text-muted ms-2">© 2026 All rights reserved.</span>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-muted">Designed with <i class="fas fa-heart gold"></i> by Karen Smith</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- (optional) small JS for demo -->
+    <script>
+        (function() {
+            // Smooth scroll for anchor links (optional)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

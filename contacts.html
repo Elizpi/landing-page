@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | LUXE HAIR SALOON</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/jpeg" href="static/images/logo.jfif" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- GLOBAL RESET & VARIABLES ----- */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: rgba(168, 8, 48, 0.85);
+      color: #fff;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+    .gold { color: #D4AF37; }
+    .bg-gold { background-color: #D4AF37 !important; }
+    .border-gold { border-color: #D4AF37 !important; }
+    .text-gold { color: #D4AF37; }
+
+    /* ----- BUTTONS ----- */
+    .btn-gold {
+      background-color: #D4AF37;
+      color: #000;
+      font-weight: 600;
+      border: 2px solid #D4AF37;
+      transition: 0.3s;
+    }
+    .btn-gold:hover {
+      background-color: transparent;
+      color: #D4AF37;
+    }
+    .btn-outline-gold {
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      background: transparent;
+      transition: 0.3s;
+    }
+    .btn-outline-gold:hover {
+      background: #D4AF37;
+      color: #000;
+    }
+
+    /* ----- NAVBAR ----- */
+    .navbar {
+      background: rgba(168, 8, 48,0.85) !important;
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #D4AF37;
+    }
+    .navbar-brand img { height: 45px; width: auto; }
+    .nav-link {
+      color: #fff !important;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #D4AF37 !important;
+    }
+
+    /* ----- SECTION TITLE ----- */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: #D4AF37;
+    }
+    .section-title.text-center::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ----- CONTACT HERO ----- */
+    .contact-hero {
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(168, 8, 48, 0.85) 100%), url('static/images/background.jfif') center/cover no-repeat;
+      min-height: 45vh;
+      display: flex;
+      align-items: center;
+      padding: 5rem 0;
+      margin-top: 72px;
+    }
+
+    /* ----- CONTACT CARDS ----- */
+    .contact-info-card {
+      background: rgba(168, 8, 48, 0.85);
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: 0.3s;
+      height: 100%;
+    }
+    .contact-info-card:hover {
+      border-color: #D4AF37;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(212,175,55,0.08);
+    }
+    .contact-info-card .icon-circle {
+      width: 70px;
+      height: 70px;
+      background: rgba(212, 175, 55, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 2rem;
+      color: #D4AF37;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    /* ----- FORM STYLES ----- */
+    .form-control {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .form-control:focus {
+      background: #222;
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+      color: #fff;
+    }
+    .form-control::placeholder {
+      color: #888;
+    }
+    .form-label {
+      color: #ccc;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .contact-form-wrapper {
+      background: #0d0d0d;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    /* ----- MAP PLACEHOLDER ----- */
+    .map-placeholder {
+      background: #1a1a1a;
+      border-radius: 16px;
+      border: 1px solid #2a2a2a;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+    }
+    .map-placeholder i {
+      font-size: 3.5rem;
+      color: #D4AF37;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ----- FOOTER & SOCIAL ----- */
+    .footer {
+      background: rgba(168, 8, 48, 0.85);
+      border-top: 1px solid #222;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .footer a:hover { color: #D4AF37; }
+    .social-icons a {
+      display: inline-block;
+      background: #222;
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 8px;
+      transition: 0.3s;
+      border: 1px solid #333;
+    }
+    .social-icons a:hover {
+      background: #D4AF37;
+      color: #000;
+      border-color: #D4AF37;
+    }
+    .social-icons-lg a {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .section-title { font-size: 2.2rem; }
+      .contact-hero { min-height: 35vh; }
+      .contact-form-wrapper { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="static/images/logo.jfif" alt="LUXE HAIR SALOON" class="me-2" />
+        <span class="gold fw-bold" style="font-family: 'Playfair Display', serif;">LUXE</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+              aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== CONTACT HERO ====== -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <span class="badge bg-gold text-black px-3 py-2 mb-3" style="font-weight:400;">✦ Get in Touch</span>
+          <h1 class="display-3 fw-bold">Contact <span class="gold">LUXE</span></h1>
+          <p class="lead mt-3" style="max-width:600px;">We'd love to hear from you. Reach out for bookings, inquiries, or just to say hello.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT INFO CARDS ====== -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h5 class="gold">Phone</h5>
+            <p class="text-light-50 mb-1">09032960035</p>
+            <p class="text-muted small">Mon–Sat: 9am – 7pm</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h5 class="gold">Email</h5>
+            <p class="text-light-50 mb-1">epiheemma@gmail.com</p>
+            <p class="text-muted small">We reply within 24hrs</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-map-pin"></i>
+            </div>
+            <h5 class="gold">Location</h5>
+            <p class="text-light-50 mb-1">Victoria Island, Ikeja, Lagos.</p>
+            <p class="text-muted small">📍 View on map below</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT FORM + MAP ====== -->
+  <section class="py-5" style="background:rgba(168, 8, 48, 0.85);">
+    <div class="container">
+      <div class="row g-5">
+        <!-- FORM -->
+        <div class="col-lg-7">
+          <div class="contact-form-wrapper">
+            <h2 class="section-title" style="font-size:2.2rem;">Send a <span class="gold">Message</span></h2>
+            <p class="text-muted mt-2 mb-4">Fill in the form below and we'll get back to you as soon as possible.</p>
+
+            <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! We\'ll get back to you shortly.'); this.reset();">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="Your full name" required />
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com" required />
+                </div>
+                <div class="col-12">
+                  <label for="phoneInput" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phoneInput" placeholder="09032960035" />
+                </div>
+                <div class="col-12">
+                  <label for="serviceSelect" class="form-label">I'm interested in...</label>
+                  <select class="form-control" id="serviceSelect">
+                    <option value="">Select a service</option>
+                    <option>Hair Styling / Cut</option>
+                    <option>Hair Treatment</option>
+                    <option>Wig Styling / Fitting</option>
+                    <option>Wig Purchase</option>
+                    <option>Bridal / Event Hair</option>
+                    <option>General Inquiry</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message" class="form-label">Your Message</label>
+                  <textarea class="form-control" id="message" rows="5" placeholder="Tell us what you're looking for..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-gold btn-lg w-100 py-3">
+                    <i class="fas fa-paper-plane me-2"></i> Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- MAP + HOURS -->
+        <div class="col-lg-5">
+          <div class="mb-4">
+            <h4 class="gold"><i class="fas fa-clock me-2"></i> Opening Hours</h4>
+            <ul class="list-unstyled text-light-50" style="line-height:2;">
+              <li><span class="text-muted">Monday – Friday:</span> 9:00 AM – 7:00 PM</li>
+              <li><span class="text-muted">Saturday:</span> 9:00 AM – 6:00 PM</li>
+              <li><span class="text-muted">Sunday:</span> Closed</li>
+            </ul>
+          </div>
+
+          <div class="map-placeholder p-4">
+            <i class="fas fa-map-marked-alt"></i>
+            <h5 class="gold mb-1">Find Us Here</h5>
+            <p class="text-muted text-center mb-0">Victoria Island, Ikeja, Lagos.</p>
+            <div class="mt-3 w-100" style="background:#222; border-radius:8px; height:140px; display:flex; align-items:center; justify-content:center; color:#555;">
+              <span><i class="fas fa-map-pin gold me-1"></i> Interactive map (placeholder)</span>
+            </div>
+            <p class="text-muted small mt-2">📍 We're located in the heart of Victoria Island</p>
+          </div>
+
+          <!-- Social links -->
+          <div class="mt-4">
+            <h5 class="gold">Connect With Us</h5>
+            <div class="social-icons social-icons-lg mt-2">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== VISIT US / SALON IMAGE ====== -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-md-6">
+          <h2 class="section-title">Visit Our <span class="gold">Salon</span></h2>
+          <p class="text-light-50 mt-3" style="line-height:1.8;">Step into a space designed for relaxation and transformation. Our Victoria Island location offers a luxurious ambiance where you can unwind while our expert team works their magic.</p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <div><i class="fas fa-wifi gold me-2"></i> Complimentary Wi-Fi</div>
+            <div><i class="fas fa-coffee gold me-2"></i> Refreshments</div>
+            <div><i class="fas fa-music gold me-2"></i> Curated Playlist</div>
+          </div>
+          <a href="services.html" class="btn btn-outline-gold mt-3 px-4">Book a Visit</a>
+        </div>
+        <div class="col-md-6">
+          <img src="static/images/parlour.jfif" alt="LUXE Salon Interior" class="img-fluid rounded shadow" style="border:1px solid #D4AF37; max-height:350px; width:100%; object-fit:cover;" />
+          <div class="mt-3 d-flex justify-content-between text-muted small">
+            <span><i class="fas fa-check-circle gold me-1"></i> Wheelchair accessible</span>
+            <span><i class="fas fa-check-circle gold me-1"></i> Free parking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FREQUENTLY ASKED (mini) ====== -->
+  <section class="py-5" style="background:rgba(168, 8, 48, 0.85);">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="section-title text-center">Quick <span class="gold">Answers</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="d-flex">
+            <i class="fas fa-question-circle gold fa-2x me-3 flex-shrink-0"></i>
+            <div>
+              <h6 class="gold">Do I need to book an appointment?</h6>
+              <p class="text-muted small">Yes, we recommend booking in advance to secure your preferred time slot.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex">
+            <i class="fas fa-question-circle gold fa-2x me-3 flex-shrink-0"></i>
+            <div>
+              <h6 class="gold">Do you offer virtual consultations?</h6>
+              <p class="text-muted small">Absolutely! We offer video consultations for wig styling and hair advice.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex">
+            <i class="fas fa-question-circle gold fa-2x me-3 flex-shrink-0"></i>
+            <div>
+              <h6 class="gold">What payment methods do you accept?</h6>
+              <p class="text-muted small">We accept cash, bank transfers, and all major cards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT STRIP ====== -->
+  <section class="py-4" style="background:#111; border-top:1px solid #222; border-bottom:1px solid #222;">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-md-4">
+          <i class="fas fa-phone-alt gold me-2"></i> 09032960035
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-envelope gold me-2"></i> epiheemma@gmail.com
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-map-pin gold me-2"></i> Victoria Island, Ikeja, Lagos.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <span class="gold fw-bold" style="font-family:'Playfair Display',serif;">LUXE HAIR SALOON</span>
+          <span class="text-muted ms-2">© 2026 All rights reserved.</span>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <span class="text-muted">Designed with <i class="fas fa-heart gold"></i> by Karen Smith</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>

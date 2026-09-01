@@ -1,0 +1,120 @@
+/* ===== style.css ===== */
+/* External stylesheet for LUXE HAIR SALOON */
+
+/* ---------- GLOBAL ---------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* Gold color utility */
+.text-gold {
+    color: #d4af37 !important;
+}
+.bg-gold {
+    background-color: #d4af37 !important;
+}
+.border-gold {
+    border-color: #d4af37 !important;
+}
+
+/* Buttons */
+.btn-gold {
+    background-color: #d4af37;
+    color: #000000;
+    font-weight: 600;
+    border: 2px solid #d4af37;
+    transition: all 0.3s ease;
+}
+.btn-gold:hover {
+    background-color: #b8962e;
+    border-color: #b8962e;
+    color: #ffffff;
+}
+.btn-outline-gold {
+    background-color: transparent;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    font-weight: 600;
+}
+.btn-outline-gold:hover {
+    background-color: #d4af37;
+    color: #000000;
+}
+
+/* ---------- NAVIGATION ---------- */
+.navbar.bg-black {
+    background-color: #000000 !important;
+}
+.navbar .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #d4af37 !important;
+}
+.gold-border-bottom {
+    border-bottom: 3px solid #d4af37;
+}
+
+/* ---------- HERO / CAROUSEL ---------- */
+.hero-section .carousel-item {
+    height: 450px;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.hero-section .carousel-caption {
+    bottom: 30%;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+.hero-section .carousel-caption h1,
+.hero-section .carousel-caption h2 {
+    font-weight: 700;
+}
+.carousel-indicators [data-bs-target] {
+    background-color: #d4af37;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+/* ---------- CARDS / PRODUCTS ---------- */
+.product-card {
+    background-color: #fafafa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(212, 175, 55, 0.2);
+}
+.product-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #d4af37;
+}
+
+/* ---------- MISC ---------- */
+section.bg-light {
+    background-color: #f8f7f2 !important;
+}
+.border-gold {
+    border: 1px solid #d4af37 !important;
+}
+footer a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+footer a:hover {
+    color: #d4af37 !important;
+}
+footer .border-secondary {
+    border-color: #333 !important;
+}

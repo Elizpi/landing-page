@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | LUXE HAIR SALOON</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/jpeg" href="static/images/logo.jfif" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- GLOBAL RESET & VARIABLES ----- */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: rgba(168, 8, 48, 0.85);
+      color: #fff;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+    .gold { color: #D4AF37; }
+    .bg-gold { background-color: #D4AF37 !important; }
+    .border-gold { border-color: #D4AF37 !important; }
+    .text-gold { color: #D4AF37; }
+
+    /* ----- BUTTONS ----- */
+    .btn-gold {
+      background-color: #D4AF37;
+      color: #000;
+      font-weight: 600;
+      border: 2px solid #D4AF37;
+      transition: 0.3s;
+    }
+    .btn-gold:hover {
+      background-color: transparent;
+      color: #D4AF37;
+    }
+    .btn-outline-gold {
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      background: transparent;
+      transition: 0.3s;
+    }
+    .btn-outline-gold:hover {
+      background: #D4AF37;
+      color: #000;
+    }
+
+    /* ----- NAVBAR (matches other pages) ----- */
+    .navbar {
+      background: rgba(168, 8, 48,0.85) !important;
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #D4AF37;
+    }
+    .navbar-brand img { height: 45px; width: auto; }
+    .nav-link {
+      color: #fff !important;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #D4AF37 !important;
+    }
+
+    /* ----- SECTION TITLE (underline) ----- */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: #D4AF37;
+    }
+    .section-title.text-center::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ----- SERVICES HERO ----- */
+    .services-hero {
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(168, 8, 48, 0.85) 100%), url('static/images/back3.gif') center/cover no-repeat;
+      min-height: 45vh;
+      display: flex;
+      align-items: center;
+      padding: 5rem 0;
+      margin-top: 72px;
+    }
+
+    /* ----- SERVICE CARDS (enhanced) ----- */
+    .service-card {
+      background: rgba(168, 8, 48, 0.85);
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: #D4AF37;
+      box-shadow: 0 12px 40px rgba(212,175,55,0.12);
+    }
+    .service-icon {
+      font-size: 3.2rem;
+      color: #D4AF37;
+      margin-bottom: 1rem;
+    }
+    .service-card .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 0.8rem;
+    }
+    .price-tag {
+      display: inline-block;
+      background: #D4AF37;
+      color: #000;
+      font-weight: 600;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ----- TESTIMONIAL / PARLOUR (reused style) ----- */
+    .testimonial-card {
+      background: rgba(168, 8, 48, 0.85);
+      border-left: 4px solid #D4AF37;
+      padding: 1.8rem;
+      border-radius: 8px;
+    }
+
+    /* ----- FOOTER & SOCIAL ----- */
+    .footer {
+      background: rgba(168, 8, 48, 0.85);
+      border-top: 1px solid #222;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .footer a:hover { color: #D4AF37; }
+    .social-icons a {
+      display: inline-block;
+      background: #222;
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 8px;
+      transition: 0.3s;
+      border: 1px solid #333;
+    }
+    .social-icons a:hover {
+      background: #D4AF37;
+      color: #000;
+      border-color: #D4AF37;
+    }
+
+    @media (max-width: 768px) {
+      .section-title { font-size: 2.2rem; }
+      .services-hero { min-height: 35vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR (consistent) ====== -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="static/images/logo.jfif" alt="LUXE HAIR SALOON" class="me-2" />
+        <span class="gold fw-bold" style="font-family: 'Playfair Display', serif;">LUXE</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+              aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== SERVICES HERO ====== -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <span class="badge bg-gold text-black px-3 py-2 mb-3" style="font-weight:400;">✦ Premium Services</span>
+          <h1 class="display-3 fw-bold">Our <span class="gold">Services</span></h1>
+          <p class="lead mt-3" style="max-width:600px;">From transformative cuts to restorative treatments and bespoke wig services – every detail is crafted for your beauty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MAIN SERVICES GRID ====== -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-center">What We <span class="gold">Offer</span></h2>
+        <p class="text-muted mt-3">Luxury hair care & styling for every need.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Service 1: Stylish Cuts -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-cut"></i></div>
+            <h4 class="gold">Stylish Cuts</h4>
+            <p class="text-light-50">Precision haircuts tailored to your face shape, hair texture, and lifestyle. From classic to avant-garde.</p>
+            <img src="static/images/beauty1.jfif" class="card-img-top" alt="Stylish cut" />
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="price-tag">From ₦15,000</span>
+              <span><i class="far fa-clock gold me-1"></i> 45–60 min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2: Hair Treatments -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-spa"></i></div>
+            <h4 class="gold">Restorative Treatments</h4>
+            <p class="text-light-50">Deep conditioning, keratin smoothing, scalp detox, and protein rebuilding for healthy, radiant hair.</p>
+            <img src="static/images/beauty2.jfif" class="card-img-top" alt="Hair treatment" />
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="price-tag">From ₦20,000</span>
+              <span><i class="far fa-clock gold me-1"></i> 60–90 min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3: Wig Styling & Fitting -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-crown"></i></div>
+            <h4 class="gold">Wig Styling</h4>
+            <p class="text-light-50">Custom fitting, cutting, and styling for both human hair and synthetic wigs. Includes maintenance and repair.</p>
+            <img src="static/images/beauty3.jfif" class="card-img-top" alt="Wig styling" />
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="price-tag">From ₦25,000</span>
+              <span><i class="far fa-clock gold me-1"></i> 60–90 min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4: Bridal & Event Hair -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-rings-wedding"></i></div>
+            <h4 class="gold">Bridal & Event</h4>
+            <p class="text-light-50">Elegant updos, curls, and intricate styles for weddings, parties, and red-carpet events. On-location available.</p>
+            <img src="static/images/bridal.jfif" class="card-img-top" alt="Bridal hair" />
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="price-tag">From ₦30,000</span>
+              <span><i class="far fa-clock gold me-1"></i> 90–120 min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5: Scalp & Hair Health -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+            <h4 class="gold">Scalp Therapy</h4>
+            <p class="text-light-50">Targeted treatments for dandruff, thinning, and dry scalp. Stimulates growth and restores balance.</p>
+            <img src="static/images/beauty6.jfif" class="card-img-top" alt="Scalp therapy" />
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="price-tag">From ₦18,000</span>
+              <span><i class="far fa-clock gold me-1"></i> 45–60 min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 6: Wig Customization -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+            <h4 class="gold">Wig Customization</h4>
+            <p class="text-light-50">Plucking, bleaching knots, custom coloring, and lace tinting to achieve a natural, flawless look.</p>
+            <img src="static/images/wig1.jfif" class="card-img-top" alt="Wig customization" />
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="price-tag">From ₦22,000</span>
+              <span><i class="far fa-clock gold me-1"></i> 60–80 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-5">
+        <a href="contacts.html" class="btn btn-gold btn-lg px-5">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SPECIAL OFFER / PACKAGES ====== -->
+  <section class="py-5" style="background:rgba(168, 8, 48, 0.85);">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-md-6">
+          <h2 class="section-title">LUXE <span class="gold">Packages</span></h2>
+          <p class="text-light-50 mt-3">Combine services for a complete transformation and enjoy exclusive savings.</p>
+          <div class="mt-4">
+            <div class="d-flex align-items-start mb-3">
+              <i class="fas fa-gem gold fa-2x me-3"></i>
+              <div>
+                <h5 class="gold">The Signature Experience</h5>
+                <p class="text-muted">Cut + Treatment + Scalp Therapy — ₦45,000 (save ₦8,000)</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-3">
+              <i class="fas fa-crown gold fa-2x me-3"></i>
+              <div>
+                <h5 class="gold">The Wig Wardrobe</h5>
+                <p class="text-muted">Wig styling + Customization + Maintenance plan — ₦55,000 (save ₦12,000)</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start">
+              <i class="fas fa-spa gold fa-2x me-3"></i>
+              <div>
+                <h5 class="gold">Bridal Bliss</h5>
+                <p class="text-muted">Trial session + Event styling + Scalp treatment — ₦75,000 (save ₦15,000)</p>
+              </div>
+            </div>
+          </div>
+          <a href="contacts.html" class="btn btn-outline-gold mt-3 px-4">Inquire About Packages</a>
+        </div>
+        <div class="col-md-6">
+          <img src="static/images/parlour.jfif" alt="LUXE salon" class="img-fluid rounded shadow" style="border:1px solid #D4AF37; max-height:350px; width:100%; object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-center">What Our <span class="gold">Clients Say</span></h2>
+        <p class="text-muted">Real experiences from real clients.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left gold opacity-50"></i>
+            <p class="mt-2">“The keratin treatment changed my hair completely! I’ve never felt this confident. LUXE is truly the best.”</p>
+            <div class="d-flex align-items-center mt-3">
+              <img src="static/images/beauty4.jfif" alt="client" style="width:45px; height:45px; border-radius:50%; object-fit:cover; border:2px solid #D4AF37;" />
+              <div class="ms-3">
+                <strong>— Amara O.</strong>
+                <span class="d-block text-muted small">Regular client</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left gold opacity-50"></i>
+            <p class="mt-2">“I bought a wig from LUXE and they styled it to perfection. It looks so natural, everyone asks where I got it.”</p>
+            <div class="d-flex align-items-center mt-3">
+              <img src="static/images/beauty2.jfif" alt="client" style="width:45px; height:45px; border-radius:50%; object-fit:cover; border:2px solid #D4AF37;" />
+              <div class="ms-3">
+                <strong>— Folake W.</strong>
+                <span class="d-block text-muted small">Wig client</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left gold opacity-50"></i>
+            <p class="mt-2">“Karen and her team are incredible. They listened to what I wanted and delivered beyond my expectations. Highly recommend!”</p>
+            <div class="d-flex align-items-center mt-3">
+              <img src="static/images/beauty5.jfif" alt="client" style="width:45px; height:45px; border-radius:50%; object-fit:cover; border:2px solid #D4AF37;" />
+              <div class="ms-3">
+                <strong>— Tolu A.</strong>
+                <span class="d-block text-muted small">Bridal client</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT STRIP ====== -->
+  <section class="py-4" style="background:#111; border-top:1px solid #222; border-bottom:1px solid #222;">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-md-4">
+          <i class="fas fa-phone-alt gold me-2"></i> 09032960035
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-envelope gold me-2"></i> epiheemma@gmail.com
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-map-pin gold me-2"></i> Victoria Island, Ikeja, Lagos.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <span class="gold fw-bold" style="font-family:'Playfair Display',serif;">LUXE HAIR SALOON</span>
+          <span class="text-muted ms-2">© 2026 All rights reserved.</span>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <span class="text-muted">Designed with <i class="fas fa-heart gold"></i> by Karen Smith</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- smooth scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
